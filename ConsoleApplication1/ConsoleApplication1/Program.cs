@@ -6,7 +6,7 @@ using System.Text;
 // Fackesを試すサンプル・アプリケーション
 namespace FackesSampleApplication
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -30,6 +30,17 @@ namespace FackesSampleApplication
             }
         }
 
+        public int TestGenerateSample()
+        {
+            int x = 1;
+            return x;
+        }
+
+        private String GetString()
+        {
+            return "hoga";
+        }
 
     }
+
 }
