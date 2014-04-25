@@ -142,3 +142,11 @@ module Lists =
         numberList
         |> List.map( fun x -> x*x)
 
+
+// シャドウィング
+module Shadwing =
+    let f x = let f x = x * 10 in f x + x
+
+    let result = f 10
+
+    printfn "%A" result
