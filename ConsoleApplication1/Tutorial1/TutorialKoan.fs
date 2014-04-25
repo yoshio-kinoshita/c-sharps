@@ -87,3 +87,58 @@ module StringManipulation =
     let substring = helloWorld.[0..6]
     printfn "%s" substring
 
+
+// ---------------------------------------------------------------
+// タプル(順序付けられた値セット)
+// ---------------------------------------------------------------
+
+module Tuples =
+    
+    /// 整数のシンプルなタプルです
+    let tuple1 = (1, 2, 3)
+
+    /// タプルの２つの値の順序を入れ替える関数
+    let swapElems (a, b) = (b, a)
+
+    printfn "The result of swapping (1, 2) is %A" (swapElems (1, 2) )
+
+    /// 整数、文字列、および倍精度浮動小数点数で構成されるタプル
+    let tuple2 = (1, "fred", 3.1415)
+
+    printfn "tuple1: %A     tuple2: %A" tuple1 tuple2
+
+
+// ---------------------------------------------------------------
+// リストおよびリストの処理
+// ---------------------------------------------------------------
+
+module Lists = 
+
+    /// 空白のリスト
+    let list1 = []
+
+    /// 3つの要素のリスト
+    let list2 = [1; 2; 3]
+
+    let list3 = 42 :: list2
+
+    let numberList = [1 .. 1000]
+
+    /// 1年のすべての日を含むリスト
+    let dayList =
+        [ for month in 1 .. 12 do
+            for day in 1 .. System.DateTime.DaysInMonth(2014, month) do
+             yield System.DateTime(2014, month, day).ToString("yyyy/MM/dd")]
+
+    /// チェス盤の黒いマス目の座標
+    let blackSquares = 
+        [ for i in 0 .. 7 do
+            for j in 0 .. 7 do
+                if (i + j) % 2 = 1 then
+                 yield (i, j) ]
+
+    /// パイプライン演算子を使用して List.map に引数を渡し、numberList の数を二乗します
+    let squares =
+        numberList
+        |> List.map( fun x -> x*x)
+
